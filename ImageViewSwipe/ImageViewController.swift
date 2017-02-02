@@ -9,6 +9,7 @@
 import UIKit
 
 class ImageViewController: UIViewController {
+    @IBOutlet weak var numButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +22,13 @@ class ImageViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func dimissButtonClicked(_ sender: UIButton) {
+    }
 
+    @IBAction func numButtonClicked(_ sender: UIButton) {
+    }
+    
+    
     /*
     // MARK: - Navigation
 

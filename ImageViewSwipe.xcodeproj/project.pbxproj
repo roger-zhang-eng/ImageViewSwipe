@@ -12,6 +12,7 @@
 		2232FDBC1E4340290024269B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2232FDBA1E4340290024269B /* Main.storyboard */; };
 		2232FDBE1E4340290024269B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2232FDBD1E4340290024269B /* Assets.xcassets */; };
 		2232FDC11E4340290024269B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2232FDBF1E4340290024269B /* LaunchScreen.storyboard */; };
+		2232FDC91E434C600024269B /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2232FDC81E434C600024269B /* ImageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		2232FDBD1E4340290024269B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2232FDC01E4340290024269B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2232FDC21E4340290024269B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2232FDC81E434C600024269B /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				2232FDB61E4340290024269B /* AppDelegate.swift */,
 				2232FDB81E4340290024269B /* ViewController.swift */,
+				2232FDC81E434C600024269B /* ImageViewController.swift */,
 				2232FDBA1E4340290024269B /* Main.storyboard */,
 				2232FDBD1E4340290024269B /* Assets.xcassets */,
 				2232FDBF1E4340290024269B /* LaunchScreen.storyboard */,
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2232FDB91E4340290024269B /* ViewController.swift in Sources */,
+				2232FDC91E434C600024269B /* ImageViewController.swift in Sources */,
 				2232FDB71E4340290024269B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

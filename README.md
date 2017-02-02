@@ -1,4 +1,5 @@
 # ImageViewSwipe
 
-## Demo the image view could be scaled small icon and lined up.
+## Demo the image view could be scaled small icon and lined up. 
+## All the code is written by swift 3.
 

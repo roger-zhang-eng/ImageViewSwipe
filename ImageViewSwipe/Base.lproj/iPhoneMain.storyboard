@@ -17,7 +17,7 @@
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -42,6 +42,8 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="ey9-SL-Luv"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -110,6 +112,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="imageView" destination="6eY-KC-SMd" id="2R8-EH-Qpv"/>
                         <outlet property="numButton" destination="xUh-QN-pPS" id="aVb-6e-uk3"/>
                     </connections>
                 </viewController>
@@ -117,11 +120,11 @@
             </objects>
             <point key="canvasLocation" x="2756" y="138.98050974512745"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="IC0-BJ-MFX">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="chl-rg-v48" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Fc0-4B-QjJ"/>
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="Fc0-4B-QjJ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="k7z-YJ-s4q">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -136,10 +139,10 @@
             </objects>
             <point key="canvasLocation" x="1252" y="138.98050974512745"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Image View Tab Bar Controller-->
         <scene sceneID="44l-Qa-7Oe">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="c5W-dZ-hqs" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="c5W-dZ-hqs" customClass="ImageViewTabBarController" customModule="ImageViewSwipe" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Xpq-hA-Di7">
                         <autoresizingMask key="autoresizingMask"/>

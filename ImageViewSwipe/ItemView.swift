@@ -8,15 +8,37 @@
 
 import UIKit
 
+protocol ItemViewProtocol: class {
+    func swipUpAction(_ index: Int)
+}
+
 class ItemView: UIView {
 
     @IBOutlet weak var imageView: UIImageView!
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    var indexID: Int?
+    weak var delegate: ItemViewProtocol?
+
+    func setSwipUpAction(_ ref: ViewController)  {
+        self.delegate = ref
+        let swipeUp = UISwipeGestureRecognizer(target: self, action:  #selector(ItemView.respondToSwipeUpGesture(_:)))
+        swipeUp.direction = UISwipeGestureRecognizerDirection.up
+        self.addGestureRecognizer(swipeUp)
     }
-    */
+    
+    func respondToSwipeUpGesture(_ sender: UISwipeGestureRecognizer) {
+            let swipeGesture = sender
+            
+            switch swipeGesture.direction {
+                
+            case UISwipeGestureRecognizerDirection.up:
+                
+                print("In ItemView: Index \(self.indexID!) View up, frame \(self.frame).")
+                self.delegate?.swipUpAction(self.indexID!)
+                
+            default:
+                break
+            }
+        
+    }
 
 }

@@ -24,7 +24,7 @@ class ImageViewType {
 
 let maxViewNum = 6
 
-class ViewController: UIViewController, ImageViewProtocol {
+class ViewController: UIViewController, ImageViewProtocol, ItemViewProtocol {
     var imageViewArray = [ImageViewType]()
     var mainStoryboard: UIStoryboard!
     var swipVC: SwipViewController?
@@ -176,14 +176,22 @@ class ViewController: UIViewController, ImageViewProtocol {
         })
     }
     
-    //LoginInputView functions
+    //swipVie functions
     func swipViewSetup() {
         self.swipVC = SwipViewController(nibName: "ImageQueueView", bundle: nil)
+        self.swipVC!.itemViewSwipActRef = self
         self.swipVC!.viewDidLoad()
+
         let swipViewHeight: CGFloat = 180
         let yOffset: CGFloat = self.view.frame.height - 20 - swipViewHeight
         self.swipVC!.swipView.frame = CGRectMake(0, yOffset, self.view.frame.width, swipViewHeight)
         self.view.addSubview(swipVC!.swipView)
+    }
+    
+    //Mark: - ItemViewProtocol
+    func swipUpAction(_ index: Int) {
+        print("In ViewController: ItemView index \(index) swip up")
+        self.imageViewShow(index, tag: (index + 1))
     }
     
 }

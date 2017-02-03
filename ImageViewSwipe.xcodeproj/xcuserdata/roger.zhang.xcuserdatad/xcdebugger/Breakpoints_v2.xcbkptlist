@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ImageViewSwipe/SwipViewController.swift"
-            timestampString = "507812093.742178"
+            timestampString = "507817451.404236"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
             landmarkName = "swipeView(_:viewForItemAt:reusing:)"
             landmarkType = "7">
          </BreakpointContent>

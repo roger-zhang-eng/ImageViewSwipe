@@ -12,7 +12,7 @@ class SwipViewController: UIViewController, SwipeViewDelegate, SwipeViewDataSour
 
     @IBOutlet var swipView: SwipeView!
     var snapShotArray = [UIImage]()
-    
+    var itemViewSwipActRef: ViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,15 +48,20 @@ class SwipViewController: UIViewController, SwipeViewDelegate, SwipeViewDataSour
         return maxViewNum
     }
     
+
+    
     func swipeView(_ swipeView: SwipeView!, viewForItemAt index: Int, reusing view: UIView!) -> UIView! {
-        var itemView: ItemView?
+        var itemView: ItemView!
         if view == nil {
             itemView = Bundle.main.loadNibNamed("ItemView", owner: self, options: nil)?.first as! ItemView
+            itemView.setSwipUpAction(self.itemViewSwipActRef)
+        
         } else {
             itemView = view as! ItemView
         }
         
-        itemView?.imageView.image = self.snapShotArray[index]
+        itemView.imageView.image = self.snapShotArray[index]
+        itemView.indexID = index
         
         return itemView!
     }

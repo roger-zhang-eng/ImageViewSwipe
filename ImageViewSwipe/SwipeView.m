@@ -94,14 +94,18 @@
 - (void)setUp
 {
     _scrollEnabled = YES;
-    _pagingEnabled = YES;
+    
     _delaysContentTouches = YES;
     _bounces = YES;
     _wrapEnabled = NO;
     _itemsPerPage = 1;
-    _truncateFinalPage = NO;
+    
     _defersItemViewLoading = NO;
     _vertical = NO;
+    
+    _alignment = SwipeViewAlignmentCenter;
+    _pagingEnabled = NO;
+    _truncateFinalPage = YES;
     
     _scrollView = [[UIScrollView alloc] init];
     _scrollView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;

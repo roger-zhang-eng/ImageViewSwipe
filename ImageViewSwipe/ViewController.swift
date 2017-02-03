@@ -22,18 +22,28 @@ class ImageViewType {
     }
 }
 
-class ViewController: UIViewController, ImageViewProtocol {
+let maxViewNum = 6
 
-    let maxViewNum = 6
+class ViewController: UIViewController, ImageViewProtocol {
     var imageViewArray = [ImageViewType]()
     var mainStoryboard: UIStoryboard!
+    var swipVC: SwipViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         mainStoryboard = UIStoryboard(name: "iPhoneMain", bundle: nil)
+        
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if self.swipVC == nil {
+            self.swipViewSetup()
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -105,6 +115,7 @@ class ViewController: UIViewController, ImageViewProtocol {
         
         addView.frame = addViewInitialFrame
         self.view.addSubview(addView)
+        self.view.isUserInteractionEnabled = false
         
         UIView.animate(withDuration: animateTime, delay: 0.1, options: .curveEaseIn, animations: {
             addView.frame = addViewFinalFrame
@@ -113,6 +124,7 @@ class ViewController: UIViewController, ImageViewProtocol {
             if closure != nil {
                 closure!()
             }
+            self?.view.isUserInteractionEnabled = true
         })
         
         
@@ -125,6 +137,7 @@ class ViewController: UIViewController, ImageViewProtocol {
         let imageView = imageViewArray[index]
         let initFrame = imageView.vc.view.frame
         let finalFrame = CGRectMake(initFrame.origin.x, self.view.frame.height, initFrame.width, initFrame.height)
+        self.view.isUserInteractionEnabled = false
         
         UIView.animate(withDuration: 0.5, delay: 0.1, options: .curveEaseOut, animations: {
             imageView.vc.view.frame = finalFrame
@@ -134,7 +147,7 @@ class ViewController: UIViewController, ImageViewProtocol {
             if complete != nil {
                 complete!()
             }
-            
+            self?.view.isUserInteractionEnabled = true
         })
     }
     
@@ -149,6 +162,16 @@ class ViewController: UIViewController, ImageViewProtocol {
             let imageView = self?.imageViewArray[index]
             imageView?.vc.removeView()
         })
+    }
+    
+    //LoginInputView functions
+    func swipViewSetup() {
+        self.swipVC = SwipViewController(nibName: "ImageQueueView", bundle: nil)
+        self.swipVC!.viewDidLoad()
+        let swipViewHeight: CGFloat = 180
+        let yOffset: CGFloat = self.view.frame.height - 20 - swipViewHeight
+        self.swipVC!.swipView.frame = CGRectMake(0, yOffset, self.view.frame.width, swipViewHeight)
+        self.view.addSubview(swipVC!.swipView)
     }
     
 }

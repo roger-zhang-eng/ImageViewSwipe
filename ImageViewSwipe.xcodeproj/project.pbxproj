@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		220F070F1E44123600FB00FA /* SwipeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 220F070E1E44123600FB00FA /* SwipeView.m */; };
+		220F07111E443DC200FB00FA /* ImageQueueView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 220F07101E443DC200FB00FA /* ImageQueueView.xib */; };
+		220F07131E44410600FB00FA /* SwipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220F07121E44410600FB00FA /* SwipViewController.swift */; };
+		220F07151E44440E00FB00FA /* ItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 220F07141E44440E00FB00FA /* ItemView.xib */; };
+		220F07171E4483E000FB00FA /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220F07161E4483E000FB00FA /* ItemView.swift */; };
 		2232FDB71E4340290024269B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2232FDB61E4340290024269B /* AppDelegate.swift */; };
 		2232FDB91E4340290024269B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2232FDB81E4340290024269B /* ViewController.swift */; };
 		2232FDBC1E4340290024269B /* iPhoneMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2232FDBA1E4340290024269B /* iPhoneMain.storyboard */; };
@@ -22,6 +26,10 @@
 		220F070C1E44123500FB00FA /* ImageViewSwipe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ImageViewSwipe-Bridging-Header.h"; sourceTree = "<group>"; };
 		220F070D1E44123600FB00FA /* SwipeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeView.h; sourceTree = "<group>"; };
 		220F070E1E44123600FB00FA /* SwipeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwipeView.m; sourceTree = "<group>"; };
+		220F07101E443DC200FB00FA /* ImageQueueView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageQueueView.xib; sourceTree = "<group>"; };
+		220F07121E44410600FB00FA /* SwipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipViewController.swift; sourceTree = "<group>"; };
+		220F07141E44440E00FB00FA /* ItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemView.xib; sourceTree = "<group>"; };
+		220F07161E4483E000FB00FA /* ItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
 		2232FDB31E4340290024269B /* ImageViewSwipe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageViewSwipe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2232FDB61E4340290024269B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2232FDB81E4340290024269B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -80,10 +88,14 @@
 				2232FDCA1E435BBA0024269B /* TabBarControlHelper.swift */,
 				2232FDB81E4340290024269B /* ViewController.swift */,
 				2232FDC81E434C600024269B /* ImageViewController.swift */,
+				220F07121E44410600FB00FA /* SwipViewController.swift */,
 				2232FDBA1E4340290024269B /* iPhoneMain.storyboard */,
 				2232FDBD1E4340290024269B /* Assets.xcassets */,
 				2232FDBF1E4340290024269B /* LaunchScreen.storyboard */,
 				2232FDC21E4340290024269B /* Info.plist */,
+				220F07101E443DC200FB00FA /* ImageQueueView.xib */,
+				220F07141E44440E00FB00FA /* ItemView.xib */,
+				220F07161E4483E000FB00FA /* ItemView.swift */,
 			);
 			path = ImageViewSwipe;
 			sourceTree = "<group>";
@@ -151,6 +163,8 @@
 			files = (
 				2232FDC11E4340290024269B /* LaunchScreen.storyboard in Resources */,
 				2232FDBE1E4340290024269B /* Assets.xcassets in Resources */,
+				220F07151E44440E00FB00FA /* ItemView.xib in Resources */,
+				220F07111E443DC200FB00FA /* ImageQueueView.xib in Resources */,
 				2232FDBC1E4340290024269B /* iPhoneMain.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -163,7 +177,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2232FDCD1E435C5C0024269B /* ImageViewTabBarController.swift in Sources */,
+				220F07131E44410600FB00FA /* SwipViewController.swift in Sources */,
 				2232FDB91E4340290024269B /* ViewController.swift in Sources */,
+				220F07171E4483E000FB00FA /* ItemView.swift in Sources */,
 				2232FDCB1E435BBA0024269B /* TabBarControlHelper.swift in Sources */,
 				220F070F1E44123600FB00FA /* SwipeView.m in Sources */,
 				2232FDC91E434C600024269B /* ImageViewController.swift in Sources */,

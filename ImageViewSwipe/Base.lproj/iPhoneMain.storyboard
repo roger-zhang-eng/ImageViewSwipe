@@ -94,20 +94,29 @@
                                     <action selector="buttonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4Nq-ff-PjQ"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="promoBG" translatesAutoresizingMaskIntoConstraints="NO" id="F4c-TB-Fld">
+                                <rect key="frame" x="6" y="410" width="363" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="fGb-tt-Hat"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.93732926849999998" green="0.99761284719999999" blue="0.7378924791" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="oCy-ji-cIZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="2Ue-H3-Z9E"/>
+                            <constraint firstItem="F4c-TB-Fld" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="6" id="3K5-Ea-xQW"/>
                             <constraint firstItem="gFc-50-RMs" firstAttribute="top" secondItem="yPt-kQ-0LE" secondAttribute="bottom" constant="20" id="BVp-Yi-b7Y"/>
                             <constraint firstItem="MAG-YJ-9eK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ghz-My-g1s"/>
                             <constraint firstItem="CaY-FJ-RAr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NQD-Zq-KFC"/>
                             <constraint firstItem="MAG-YJ-9eK" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="PrM-v8-m7E"/>
+                            <constraint firstAttribute="trailing" secondItem="F4c-TB-Fld" secondAttribute="trailing" constant="6" id="QF1-fd-cL6"/>
                             <constraint firstItem="yPt-kQ-0LE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="XSs-hu-KUu"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ELa-ex-aDQ" secondAttribute="trailing" constant="11" id="YbF-2C-gc7"/>
                             <constraint firstItem="ELa-ex-aDQ" firstAttribute="top" secondItem="oCy-ji-cIZ" secondAttribute="bottom" constant="20" id="Zlv-i8-J4U"/>
                             <constraint firstItem="CaY-FJ-RAr" firstAttribute="top" secondItem="MAG-YJ-9eK" secondAttribute="bottom" constant="20" id="dqG-9G-0uR"/>
                             <constraint firstItem="yPt-kQ-0LE" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="hKd-7R-YYY"/>
                             <constraint firstItem="gFc-50-RMs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="tj9-8v-esC"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="F4c-TB-Fld" secondAttribute="bottom" constant="8" id="yHR-Nz-hQF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="oCy-ji-cIZ" secondAttribute="trailing" constant="11" id="yzz-mI-SDS"/>
                         </constraints>
                     </view>
@@ -231,5 +240,6 @@
     </scenes>
     <resources>
         <image name="Image1" width="320" height="568"/>
+        <image name="promoBG" width="240" height="180"/>
     </resources>
 </document>

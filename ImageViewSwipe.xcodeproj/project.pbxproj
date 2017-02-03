@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		220F070F1E44123600FB00FA /* SwipeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 220F070E1E44123600FB00FA /* SwipeView.m */; };
 		2232FDB71E4340290024269B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2232FDB61E4340290024269B /* AppDelegate.swift */; };
 		2232FDB91E4340290024269B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2232FDB81E4340290024269B /* ViewController.swift */; };
 		2232FDBC1E4340290024269B /* iPhoneMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2232FDBA1E4340290024269B /* iPhoneMain.storyboard */; };
@@ -18,6 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		220F070C1E44123500FB00FA /* ImageViewSwipe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ImageViewSwipe-Bridging-Header.h"; sourceTree = "<group>"; };
+		220F070D1E44123600FB00FA /* SwipeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeView.h; sourceTree = "<group>"; };
+		220F070E1E44123600FB00FA /* SwipeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwipeView.m; sourceTree = "<group>"; };
 		2232FDB31E4340290024269B /* ImageViewSwipe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageViewSwipe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2232FDB61E4340290024269B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2232FDB81E4340290024269B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -41,6 +45,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		220F070B1E44117500FB00FA /* swipView */ = {
+			isa = PBXGroup;
+			children = (
+				220F070D1E44123600FB00FA /* SwipeView.h */,
+				220F070E1E44123600FB00FA /* SwipeView.m */,
+			);
+			name = swipView;
+			sourceTree = "<group>";
+		};
 		2232FDAA1E4340290024269B = {
 			isa = PBXGroup;
 			children = (
@@ -60,6 +73,8 @@
 		2232FDB51E4340290024269B /* ImageViewSwipe */ = {
 			isa = PBXGroup;
 			children = (
+				220F070C1E44123500FB00FA /* ImageViewSwipe-Bridging-Header.h */,
+				220F070B1E44117500FB00FA /* swipView */,
 				2232FDB61E4340290024269B /* AppDelegate.swift */,
 				2232FDCC1E435C5C0024269B /* ImageViewTabBarController.swift */,
 				2232FDCA1E435BBA0024269B /* TabBarControlHelper.swift */,
@@ -106,6 +121,7 @@
 					2232FDB21E4340290024269B = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = Y69FWE3PS5;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -149,6 +165,7 @@
 				2232FDCD1E435C5C0024269B /* ImageViewTabBarController.swift in Sources */,
 				2232FDB91E4340290024269B /* ViewController.swift in Sources */,
 				2232FDCB1E435BBA0024269B /* TabBarControlHelper.swift in Sources */,
+				220F070F1E44123600FB00FA /* SwipeView.m in Sources */,
 				2232FDC91E434C600024269B /* ImageViewController.swift in Sources */,
 				2232FDB71E4340290024269B /* AppDelegate.swift in Sources */,
 			);
@@ -271,11 +288,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = Y69FWE3PS5;
 				INFOPLIST_FILE = ImageViewSwipe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = roger.com.ImageViewSwipe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ImageViewSwipe/ImageViewSwipe-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -284,11 +304,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = Y69FWE3PS5;
 				INFOPLIST_FILE = ImageViewSwipe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = roger.com.ImageViewSwipe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ImageViewSwipe/ImageViewSwipe-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -312,6 +334,7 @@
 				2232FDC71E4340290024269B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

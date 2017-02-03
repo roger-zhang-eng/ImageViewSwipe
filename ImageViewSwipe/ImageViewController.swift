@@ -16,6 +16,7 @@ class ImageViewController: UIViewController {
     @IBOutlet weak var numButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
     var index: Int!
+    var tag: Int!
     
     var yOffset: CGFloat!
     var viewHeight: CGFloat!
@@ -26,6 +27,7 @@ class ImageViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        print("ImageViewController: viewDidLoad index \(index) and tag \(tag)")
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,13 +37,14 @@ class ImageViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("ImageViewController: viewWillAppear")
+        print("ImageViewController: viewWillAppear index \(index) and tag \(tag)")
         
         self.imageView.image = UIImage(named: "Image\(self.index + 1)")
     }
     
-    func viewInit(_ index: Int) {
+    func viewInit(_ index: Int, tag: Int) {
         self.index = index
+        self.tag = tag
     }
     
     func updateViewSize(_ screenWidth: CGFloat) {
@@ -64,7 +67,7 @@ class ImageViewController: UIViewController {
     }
     
     @IBAction func dimissButtonClicked(_ sender: UIButton) {
-        self.removeView()
+        //self.removeView()
         self.delegate?.dismissImageView(self.index)
     }
 

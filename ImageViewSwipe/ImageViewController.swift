@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ImageViewProtocol: class {
-    func dismissImageView(_ index: Int)
+    func dismissImageView(_ index: Int, snapshot: UIImage?)
 }
 
 class ImageViewController: UIViewController {
@@ -66,9 +66,18 @@ class ImageViewController: UIViewController {
         self.removeFromParentViewController()
     }
     
+    func getSnapshotImage() -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, false, 0.0)
+        self.view.layer.render(in: UIGraphicsGetCurrentContext()!)
+        let viewImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return viewImage
+    }
+    
     @IBAction func dimissButtonClicked(_ sender: UIButton) {
         //self.removeView()
-        self.delegate?.dismissImageView(self.index)
+        self.delegate?.dismissImageView(self.index, snapshot: self.getSnapshotImage())
     }
 
     @IBAction func numButtonClicked(_ sender: UIButton) {

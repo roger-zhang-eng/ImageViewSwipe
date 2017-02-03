@@ -11,16 +11,24 @@ import UIKit
 class SwipViewController: UIViewController, SwipeViewDelegate, SwipeViewDataSource {
 
     @IBOutlet var swipView: SwipeView!
+    var snapShotArray = [UIImage]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         print("viewDidLoad in SwipViewController.")
         
+        for _ in 1...maxViewNum {
+            self.snapShotArray.append(UIImage(named: "shoppingIcon")!)
+        }
+        
         Bundle.main.loadNibNamed("ImageQueueView", owner: self, options: nil)
         
         swipView.delegate = self
         swipView.dataSource = self
+        
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,7 +56,7 @@ class SwipViewController: UIViewController, SwipeViewDelegate, SwipeViewDataSour
             itemView = view as! ItemView
         }
         
-        //itemView.imageView
+        itemView?.imageView.image = self.snapShotArray[index]
         
         return itemView!
     }

@@ -51,7 +51,7 @@ class ViewController: UIViewController, ImageViewProtocol {
 
     @IBAction func buttonClicked(_ sender: UIButton) {
         let tag = sender.tag
-        guard tag < maxViewNum else {
+        guard tag <= maxViewNum else {
             print("Button tag \(tag) over limitation!")
             return
         }
@@ -157,10 +157,22 @@ class ViewController: UIViewController, ImageViewProtocol {
     }
     
     //Mark: - ImageViewProtocol
-    func dismissImageView(_ index: Int) {
+    func dismissImageView(_ index: Int, snapshot: UIImage?) {
+        
+        let imageView = self.imageViewArray[index]
+        if snapshot != nil {
+            imageView.snapImage = snapshot
+            
+            if self.swipVC != nil {
+                self.swipVC!.snapShotArray[index] = imageView.snapImage!
+                self.swipVC!.swipView.reloadData()
+            }
+        }
+        
+        
+        
         self.restoreWebViewFromCustomBigWidget(index, complete: { [weak self] _ in
-            let imageView = self?.imageViewArray[index]
-            imageView?.vc.removeView()
+            imageView.vc.removeView()
         })
     }
     

@@ -131,11 +131,11 @@ class ViewController: UIViewController, ImageViewProtocol, ItemViewProtocol {
         
     }
 
-    func restoreWebViewFromCustomBigWidget(_ index: Int, complete: (() -> Void)?) {
+    func queueWebViewFromCustomBigWidget(_ index: Int, complete: (() -> Void)?) {
         print("ImageView \(index) will be removed!")
         let imageView = imageViewArray[index]
-        let initFrame = imageView.vc.view.frame
-        let finalFrame = CGRectMake(initFrame.origin.x, self.view.frame.height, initFrame.width, initFrame.height)
+        //let initFrame = imageView.vc.view.frame
+        let finalFrame = self.webSnapshotFinalFrame() //CGRectMake(initFrame.origin.x, self.view.frame.height, initFrame.width, initFrame.height)
         self.view.isUserInteractionEnabled = false
         
         UIView.animate(withDuration: 0.5, delay: 0.1, options: .curveEaseOut, animations: {
@@ -164,7 +164,7 @@ class ViewController: UIViewController, ImageViewProtocol, ItemViewProtocol {
         
         imageView.snapImage = snapshot
         
-        self.restoreWebViewFromCustomBigWidget(self.imageViewTagMapping[tag]!, complete: { [weak self] _ in
+        self.queueWebViewFromCustomBigWidget(self.imageViewTagMapping[tag]!, complete: { [weak self] _ in
             imageView.vc.removeView()
             if self?.swipVC != nil {
                 self?.addSwipView()
@@ -176,6 +176,27 @@ class ViewController: UIViewController, ImageViewProtocol, ItemViewProtocol {
                 self?.swipVC!.swipView.reloadData()
             }
         })
+    }
+    
+    func webSnapshotFinalFrame() -> CGRect {
+        var finalFrame: CGRect!
+        let snapViewHeight: CGFloat = 180
+        let snapViewWidth: CGFloat = 120
+        let imageHInset: CGFloat = 10
+        let imageVInset: CGFloat = 5
+        let yOffset: CGFloat = self.view.frame.height - 20 - snapViewHeight
+        
+        if self.swipVC == nil {
+            //web snapshot scroll view is created 1st time, and item is only 1.
+            let xOffset: CGFloat = self.view.frame.width - snapViewWidth
+            finalFrame = CGRectMake(xOffset + imageHInset, yOffset - imageVInset, (snapViewWidth - 2 * imageHInset), (snapViewHeight - 2 * imageVInset))
+        } else {
+            //web snapshot scroll view items are more than 1.
+            let xOffset: CGFloat = self.view.frame.width - snapViewWidth * 1.3
+            finalFrame = CGRectMake(xOffset + imageHInset, yOffset - imageVInset, (snapViewWidth - 2 * imageHInset), (snapViewHeight - 2 * imageVInset))
+        }
+        
+        return finalFrame
     }
     
     //swipVie functions

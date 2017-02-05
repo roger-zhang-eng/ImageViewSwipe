@@ -25,6 +25,7 @@ class ImageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.view.backgroundColor = UIColor.clear
         // Do any additional setup after loading the view.
         print("ImageViewController: viewDidLoad tag \(tag)")
     }

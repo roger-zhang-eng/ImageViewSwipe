@@ -103,7 +103,7 @@
     _defersItemViewLoading = NO;
     _vertical = NO;
     
-    _alignment = SwipeViewAlignmentCenter;
+    _alignment = SwipeViewAlignmentRight; //SwipeViewAlignmentCenter;
     _pagingEnabled = NO;
     _truncateFinalPage = YES;
     
@@ -433,6 +433,28 @@
             {
                 frame = CGRectMake((self.bounds.size.width - _itemSize.width * _itemsPerPage)/2.0f,
                                    0.0f, _itemSize.width * _itemsPerPage, self.bounds.size.height);
+                contentSize.width = _itemSize.width * _numberOfItems;
+            }
+            break;
+        }
+        case SwipeViewAlignmentRight:
+        {
+            if (_vertical)
+            { //vertical not support now, here just copy SwipeViewAlignmentCenter vertical
+                frame = CGRectMake(0.0f, (self.bounds.size.height - _itemSize.height * _itemsPerPage)/2.0f,
+                                   self.bounds.size.width, _itemSize.height * _itemsPerPage);
+                contentSize.height = _itemSize.height * _numberOfItems;
+            }
+            else
+            { //Customize the horizal position.
+                if (_numberOfItems < 2) {
+                    frame = CGRectMake((self.bounds.size.width - _itemSize.width * _itemsPerPage),
+                                       0.0f, _itemSize.width * _itemsPerPage, self.bounds.size.height);
+                } else {
+                    frame = CGRectMake((self.bounds.size.width - _itemSize.width * _itemsPerPage * 1.5f),
+                                       0.0f, _itemSize.width * _itemsPerPage, self.bounds.size.height);
+                }
+                
                 contentSize.width = _itemSize.width * _numberOfItems;
             }
             break;

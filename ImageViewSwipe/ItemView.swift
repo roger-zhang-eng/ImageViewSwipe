@@ -9,13 +9,13 @@
 import UIKit
 
 protocol ItemViewProtocol: class {
-    func swipUpAction(_ index: Int)
+    func swipUpAction(_ tag: Int)
 }
 
 class ItemView: UIView {
 
     @IBOutlet weak var imageView: UIImageView!
-    var indexID: Int?
+    var tagForItem: Int?
     weak var delegate: ItemViewProtocol?
 
     func setSwipUpAction(_ ref: ViewController)  {
@@ -32,8 +32,8 @@ class ItemView: UIView {
                 
             case UISwipeGestureRecognizerDirection.up:
                 
-                print("In ItemView: Index \(self.indexID!) View up, frame \(self.frame).")
-                self.delegate?.swipUpAction(self.indexID!)
+                print("In ItemView: Index \(self.tagForItem!) View up, frame \(self.frame).")
+                self.delegate?.swipUpAction(self.tagForItem!)
                 
             default:
                 break

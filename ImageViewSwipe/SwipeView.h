@@ -51,7 +51,8 @@
 typedef NS_ENUM(NSUInteger, SwipeViewAlignment)
 {
     SwipeViewAlignmentEdge = 0,
-    SwipeViewAlignmentCenter
+    SwipeViewAlignmentCenter,
+    SwipeViewAlignmentRight
 };
 
 

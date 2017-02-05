@@ -9,13 +9,12 @@
 import UIKit
 
 protocol ImageViewProtocol: class {
-    func dismissImageView(_ index: Int, snapshot: UIImage?)
+    func dismissImageView(_ tag: Int, snapshot: UIImage?)
 }
 
 class ImageViewController: UIViewController {
     @IBOutlet weak var numButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
-    var index: Int!
     var tag: Int!
     
     var yOffset: CGFloat!
@@ -27,7 +26,7 @@ class ImageViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        print("ImageViewController: viewDidLoad index \(index) and tag \(tag)")
+        print("ImageViewController: viewDidLoad tag \(tag)")
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,13 +36,12 @@ class ImageViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("ImageViewController: viewWillAppear index \(index) and tag \(tag)")
+        print("ImageViewController: viewWillAppear tag \(tag)")
         
-        self.imageView.image = UIImage(named: "Image\(self.index + 1)")
+        self.imageView.image = UIImage(named: "Image\(self.tag!)")
     }
     
-    func viewInit(_ index: Int, tag: Int) {
-        self.index = index
+    func viewInit(_ tag: Int) {
         self.tag = tag
     }
     
@@ -77,7 +75,7 @@ class ImageViewController: UIViewController {
     
     @IBAction func dimissButtonClicked(_ sender: UIButton) {
         //self.removeView()
-        self.delegate?.dismissImageView(self.index, snapshot: self.getSnapshotImage())
+        self.delegate?.dismissImageView(self.tag, snapshot: self.getSnapshotImage())
     }
 
     @IBAction func numButtonClicked(_ sender: UIButton) {

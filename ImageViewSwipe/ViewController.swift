@@ -9,13 +9,11 @@
 import UIKit
 
 class ImageViewType {
-    var index: Int
     var tag: Int
     var vc: ImageViewController
     var snapImage: UIImage?
     
-    init(index: Int, tag: Int, vc: ImageViewController, snapImage: UIImage?) {
-        self.index = index
+    init(tag: Int, vc: ImageViewController, snapImage: UIImage?) {
         self.tag = tag
         self.vc = vc
         self.snapImage = snapImage
@@ -26,6 +24,7 @@ let maxViewNum = 6
 
 class ViewController: UIViewController, ImageViewProtocol, ItemViewProtocol {
     var imageViewArray = [ImageViewType]()
+    var imageViewTagMapping = [Int: Int]() //Tag: Index of imageViewArray
     var mainStoryboard: UIStoryboard!
     var swipVC: SwipViewController?
     
@@ -56,7 +55,7 @@ class ViewController: UIViewController, ImageViewProtocol, ItemViewProtocol {
             return
         }
         
-        imageViewShow((tag - 1), tag: tag)
+        imageViewShow(tag)
 
         
     }
@@ -76,26 +75,26 @@ class ViewController: UIViewController, ImageViewProtocol, ItemViewProtocol {
         return nil
     }
     
-    func imageViewSetup(_ index: Int, tag: Int) -> ImageViewType {
+    func imageViewSetup(_ tag: Int) -> ImageViewType {
         let vc = mainStoryboard.instantiateViewController(withIdentifier: "ImageDisplayView") as! ImageViewController
         vc.delegate = self
-        let imageView = ImageViewType(index: index, tag: tag, vc: vc, snapImage: nil)
+        let imageView = ImageViewType(tag: tag, vc: vc, snapImage: nil)
         self.imageViewArray.append(imageView)
-        
+        self.imageViewTagMapping[tag] = self.imageViewArray.count - 1
         return imageView
     }
     
-    func imageViewShow(_ index: Int, tag: Int)
+    func imageViewShow(_ tag: Int)
     {
         
         var imageView = self.seekImageViewByTag(tag)
         
         if imageView == nil {
-            imageView = self.imageViewSetup(index, tag: tag)
+            imageView = self.imageViewSetup(tag)
         }
         
         //init setting for choose address before display
-        imageView!.vc.viewInit(index, tag: tag)
+        imageView!.vc.viewInit(tag)
         
         imageView!.vc.yOffset = 0
         imageView!.vc.viewHeight = self.view.frame.height
@@ -157,22 +156,24 @@ class ViewController: UIViewController, ImageViewProtocol, ItemViewProtocol {
     }
     
     //Mark: - ImageViewProtocol
-    func dismissImageView(_ index: Int, snapshot: UIImage?) {
+    func dismissImageView(_ tag: Int, snapshot: UIImage?) {
         
-        let imageView = self.imageViewArray[index]
-        if snapshot != nil {
-            imageView.snapImage = snapshot
-            
-            if self.swipVC != nil {
-                self.swipVC!.snapShotArray[index] = imageView.snapImage!
-                self.swipVC!.swipView.reloadData()
-            }
+        guard let imageView = self.seekImageViewByTag(tag) else {
+            return
         }
         
+        imageView.snapImage = snapshot
         
-        
-        self.restoreWebViewFromCustomBigWidget(index, complete: { [weak self] _ in
+        self.restoreWebViewFromCustomBigWidget(self.imageViewTagMapping[tag]!, complete: { [weak self] _ in
             imageView.vc.removeView()
+            if self?.swipVC != nil {
+                self?.addSwipView()
+                let snapShot = snapShotType(image: imageView.snapImage!, tag: tag)
+                
+                self?.swipVC!.updateSnapshots(snapShot)
+                
+                self?.swipVC!.swipView.reloadData()
+            }
         })
     }
     
@@ -185,13 +186,23 @@ class ViewController: UIViewController, ImageViewProtocol, ItemViewProtocol {
         let swipViewHeight: CGFloat = 180
         let yOffset: CGFloat = self.view.frame.height - 20 - swipViewHeight
         self.swipVC!.swipView.frame = CGRectMake(0, yOffset, self.view.frame.width, swipViewHeight)
-        self.view.addSubview(swipVC!.swipView)
+
+    }
+    
+    func addSwipView() {
+        guard self.swipVC != nil && !self.swipVC!.viewAdded else {
+            return
+        }
+        
+        self.view.addSubview(self.swipVC!.swipView)
+        self.swipVC!.viewAdded = true
     }
     
     //Mark: - ItemViewProtocol
-    func swipUpAction(_ index: Int) {
+    func swipUpAction(_ tag: Int) {
+        let index = self.imageViewTagMapping[tag]!
         print("In ViewController: ItemView index \(index) swip up")
-        self.imageViewShow(index, tag: (index + 1))
+        self.imageViewShow(tag)
     }
     
 }

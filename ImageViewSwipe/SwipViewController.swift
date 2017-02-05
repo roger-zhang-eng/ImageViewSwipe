@@ -8,20 +8,27 @@
 
 import UIKit
 
+struct snapShotType {
+    var image: UIImage
+    let tag: Int
+}
+
 class SwipViewController: UIViewController, SwipeViewDelegate, SwipeViewDataSource {
 
     @IBOutlet var swipView: SwipeView!
-    var snapShotArray = [UIImage]()
+    var snapShotArray = [snapShotType]()
     var itemViewSwipActRef: ViewController!
+    var viewAdded = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         print("viewDidLoad in SwipViewController.")
         
-        for _ in 1...maxViewNum {
+        /*for _ in 1...maxViewNum {
             self.snapShotArray.append(UIImage(named: "shoppingIcon")!)
         }
+        */
         
         Bundle.main.loadNibNamed("ImageQueueView", owner: self, options: nil)
         
@@ -36,6 +43,17 @@ class SwipViewController: UIViewController, SwipeViewDelegate, SwipeViewDataSour
         // Dispose of any resources that can be recreated.
     }
     
+    func updateSnapshots(_ snapshot: snapShotType) {
+        for (index, item) in self.snapShotArray.enumerated() {
+            if item.tag == snapshot.tag {
+                snapShotArray[index].image = snapshot.image
+                return
+            }
+        }
+        
+        self.snapShotArray.append(snapshot)
+    }
+    
     //This func is never be called by system
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -45,7 +63,7 @@ class SwipViewController: UIViewController, SwipeViewDelegate, SwipeViewDataSour
     }
 
     func numberOfItems(in swipeView: SwipeView!) -> Int {
-        return maxViewNum
+        return snapShotArray.count //maxViewNum
     }
     
 
@@ -60,8 +78,8 @@ class SwipViewController: UIViewController, SwipeViewDelegate, SwipeViewDataSour
             itemView = view as! ItemView
         }
         
-        itemView.imageView.image = self.snapShotArray[index]
-        itemView.indexID = index
+        itemView.imageView.image = self.snapShotArray[index].image
+        itemView.tagForItem = self.snapShotArray[index].tag
         
         return itemView!
     }

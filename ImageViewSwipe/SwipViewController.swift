@@ -78,8 +78,10 @@ class SwipViewController: UIViewController, SwipeViewDelegate, SwipeViewDataSour
             itemView = view as! ItemView
         }
         
-        itemView.imageView.image = self.snapShotArray[index].image
-        itemView.tagForItem = self.snapShotArray[index].tag
+        let displayIndex = self.snapShotArray.count - 1 - index
+        
+        itemView.imageView.image = self.snapShotArray[displayIndex].image
+        itemView.tagForItem = self.snapShotArray[displayIndex].tag
         
         return itemView!
     }

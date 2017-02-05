@@ -451,7 +451,7 @@
                     frame = CGRectMake((self.bounds.size.width - _itemSize.width * _itemsPerPage),
                                        0.0f, _itemSize.width * _itemsPerPage, self.bounds.size.height);
                 } else {
-                    frame = CGRectMake((self.bounds.size.width - _itemSize.width * _itemsPerPage * 1.5f),
+                    frame = CGRectMake((self.bounds.size.width - _itemSize.width * _itemsPerPage * 1.3f),
                                        0.0f, _itemSize.width * _itemsPerPage, self.bounds.size.height);
                 }
                 
@@ -1221,6 +1221,11 @@
     [self didScroll];
     
     [_delegate swipeViewDidEndDecelerating:self];
+}
+
+- (void)resetScrollViewContentOffset
+{
+    _scrollView.contentOffset = CGPointMake(0, 0);
 }
 
 @end

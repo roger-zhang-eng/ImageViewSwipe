@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ImageViewSwipe/SwipeView.m"
-            timestampString = "507951204.337486"
+            timestampString = "507986959.470059"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "410"
-            endingLineNumber = "410"
+            startingLineNumber = "507"
+            endingLineNumber = "507"
             landmarkName = "-updateScrollViewDimensions"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,28 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ImageViewSwipe/SwipeView.m"
-            timestampString = "507952936.32576"
+            timestampString = "507986982.757034"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "502"
-            endingLineNumber = "502"
-            landmarkName = "-updateScrollViewDimensions"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ImageViewSwipe/SwipeView.m"
-            timestampString = "507953126.656533"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "450"
-            endingLineNumber = "450"
-            landmarkName = "-updateScrollViewDimensions"
+            startingLineNumber = "642"
+            endingLineNumber = "642"
+            landmarkName = "-didScroll"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -58,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ImageViewSwipe/ViewController.swift"
-            timestampString = "507958398.016011"
+            timestampString = "507987427.942836"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "161"
-            endingLineNumber = "161"
+            startingLineNumber = "176"
+            endingLineNumber = "176"
             landmarkName = "dismissImageView(_:snapshot:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -73,62 +57,14 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ImageViewSwipe/ViewController.swift"
-            timestampString = "507958398.016011"
+            filePath = "ImageViewSwipe/SwipeView.m"
+            timestampString = "507987842.928356"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
-            landmarkName = "seekImageViewByTag(_:)"
+            startingLineNumber = "599"
+            endingLineNumber = "599"
+            landmarkName = "-layoutSubviews"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ImageViewSwipe/ViewController.swift"
-            timestampString = "507958444.376537"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
-            landmarkName = "imageViewShow(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ImageViewSwipe.ViewController.imageViewShow (Swift.Int) -&gt; ()"
-                  moduleName = "ImageViewSwipe"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rogerz/Documents/Test_Code/ImageViewSwipe/ImageViewSwipe/ViewController.swift"
-                  timestampString = "507958444.647264"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "90"
-                  endingLineNumber = "90"
-                  offsetFromSymbolStart = "87">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ImageViewSwipe.ViewController.(imageViewShow (Swift.Int) -&gt; ()).(closure #1)"
-                  moduleName = "ImageViewSwipe"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rogerz/Documents/Test_Code/ImageViewSwipe/ImageViewSwipe/ViewController.swift"
-                  timestampString = "507958444.648876"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "90"
-                  endingLineNumber = "90"
-                  offsetFromSymbolStart = "22">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

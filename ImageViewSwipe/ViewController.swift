@@ -171,7 +171,8 @@ class ViewController: UIViewController, ImageViewProtocol, ItemViewProtocol {
                 let snapShot = snapShotType(image: imageView.snapImage!, tag: tag)
                 
                 self?.swipVC!.updateSnapshots(snapShot)
-                
+                //self?.swipVC!.restoreSwipeViewPosition()
+                self?.swipVC!.swipView.resetScrollContentOffset()
                 self?.swipVC!.swipView.reloadData()
             }
         })

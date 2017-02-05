@@ -98,6 +98,8 @@ typedef NS_ENUM(NSUInteger, SwipeViewAlignment)
 - (NSInteger)indexOfItemView:(UIView *)view;
 - (NSInteger)indexOfItemViewOrSubview:(UIView *)view;
 
+- (void)resetScrollViewContentOffset;
+
 @end
 
 

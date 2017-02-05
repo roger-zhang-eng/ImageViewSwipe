@@ -54,6 +54,12 @@ class SwipViewController: UIViewController, SwipeViewDelegate, SwipeViewDataSour
         self.snapShotArray.append(snapshot)
     }
     
+    /*func restoreSwipeViewPosition() {
+        if self.swipView != nil {
+            self.swipView.resetScrollViewContentOffset()
+        }
+    }*/
+    
     //This func is never be called by system
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

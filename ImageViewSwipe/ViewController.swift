@@ -186,7 +186,7 @@ class ViewController: UIViewController, ImageViewProtocol, ItemViewProtocol {
         let imageVInset: CGFloat = 5
         let yOffset: CGFloat = self.view.frame.height - 20 - snapViewHeight
         
-        if self.swipVC == nil {
+        if self.swipVC!.snapShotArray.count < 1 {
             //web snapshot scroll view is created 1st time, and item is only 1.
             let xOffset: CGFloat = self.view.frame.width - snapViewWidth
             finalFrame = CGRectMake(xOffset + imageHInset, yOffset - imageVInset, (snapViewWidth - 2 * imageHInset), (snapViewHeight - 2 * imageVInset))
